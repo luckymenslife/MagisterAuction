@@ -6,7 +6,7 @@ package functionPrice;
 
 import fixedPrice.FixedPricesForVariational;
 import fixedPrice.InputData;
-import fixedPrice.ProfitItem;
+import fixedPrice.ProfitItemParameter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,14 +18,18 @@ public class VariationalCaseWithParameters
 {
     private List<InputData> inputDataSellers;
     private List<InputData> inputDataBuyers;
-    private Double costs;
-    private double maxNum;
+    private Double rawCost;
+    private double maxA;
+    private double maxB;
+    private double minValZ;
 
-    public VariationalCaseWithParameters(List<InputData> inputDataSellers, List<InputData> inputDataBuyers, Double costs, double maxNum) {
+    public VariationalCaseWithParameters(List<InputData> inputDataSellers, List<InputData> inputDataBuyers, Double rawCost, double maxA, double maxB, double minValZ) {
         this.inputDataSellers = inputDataSellers;
         this.inputDataBuyers = inputDataBuyers;
-        this.costs = costs;
-        this.maxNum = maxNum;
+        this.rawCost = rawCost;
+        this.maxA = maxA;
+        this.maxB = maxB;
+        this.minValZ = minValZ;
     }
     
     private Double priceFunction(Double[] sellers, Double[] buyers, int k, Double initVal, Float disp)
@@ -140,88 +144,108 @@ public class VariationalCaseWithParameters
         return (initCost-num/500);
     }
     
-    public List<ProfitItem> auctionModel(boolean isFunc)
+    public List<ProfitItemParameter> auctionModel(boolean isFunc)
     {
-        Double[] sellersVals = new Double[inputDataSellers.size()+1];
-        Double[] buyersVals = new Double[inputDataBuyers.size()];
-        for(int i = 0; i < sellersVals.length; i++)
-            sellersVals[i]=0.0;
-        for(int i = 0; i < buyersVals.length; i++)
-            buyersVals[i]=0.0;
-        Double initValSellers = 57.0;
-        Double initValBuyers = 62.0;
-        float disp = 10;
-        double p = this.costs;
-        double step = (double) (0.001*p);
-        double maxPriceVal = initValSellers+5*step;
-        List<ProfitItem> ret = new ArrayList<ProfitItem>();
+        //Взятые с потолка коэффициенты
+        Double aCoef = 1000;
+        Double bCoef = 300;
         
-        while (p<maxPriceVal)
+        Double aStep = 0.01*this.maxA;
+        Double bStep = 0.01*this.maxB;
+        Double aVal = 1.0;
+        Double bVal = 0.0;
+        Double zVal = this.minValZ;
+        
+        //Здесь надо вставить цикл по a и b
+        while (bVal<this.maxB)
         {
-            List<InputData> sellersData = new ArrayList<InputData>();
-            List<InputData> buyersData = new ArrayList<InputData>();
-            for (int i = 0; i<inputDataSellers.size();i++)
-            {
-                sellersData.add(copyInputDataList(inputDataSellers.get(i)));
-            }
-            for (int i = 0; i<inputDataBuyers.size();i++)
-            {
-                buyersData.add(copyInputDataList(inputDataBuyers.get(i)));
-            }
-            recalcPrices(sellersData, buyersData, sellersVals, buyersVals, initValSellers, initValBuyers, p, this.maxNum);
+            while (aVal<this.maxA)
             
-            double maxDiff = 0;
-            Double[] lastVals;
-            int k = 0;
-            Double c = 0.5;
-            Double alpha;            
-            do
-            {
-                lastVals = sellersVals.clone();
-                FixedPricesForVariational fpv = new FixedPricesForVariational(sellersData, buyersData);
-                fpv.auctionModel(0);
-                alpha = c/(k+1);
-                for(int i=0; i<sellersVals.length; i++)
+                zVal = aVal*this.minValZ+bVal;
+                Double selfCost = this.rawCost + (aVal*aCoef+bVal*bCoef)/zVal;
+                Double[] sellersVals = new Double[inputDataSellers.size()+1];
+                Double[] buyersVals = new Double[inputDataBuyers.size()];
+                for(int i = 0; i < sellersVals.length; i++)
+                    sellersVals[i]=0.0;
+                for(int i = 0; i < buyersVals.length; i++)
+                    buyersVals[i]=0.0;
+                Double initValSellers = 57.0;
+                Double initValBuyers = 62.0;
+                float disp = 10;
+                double p = this.costs;
+                double step = (double) (0.001*p);
+                double maxPriceVal = initValSellers+5*step;
+                List<ProfitItem> ret = new ArrayList<ProfitItem>();
+
+                while (p<maxPriceVal)
                 {
-                    sellersVals[i]=(1-alpha)*sellersVals[i]+alpha*fpv.getOutputSellers()[i];
+                    List<InputData> sellersData = new ArrayList<InputData>();
+                    List<InputData> buyersData = new ArrayList<InputData>();
+                    for (int i = 0; i<inputDataSellers.size();i++)
+                    {
+                        sellersData.add(copyInputDataList(inputDataSellers.get(i)));
+                    }
+                    for (int i = 0; i<inputDataBuyers.size();i++)
+                    {
+                        buyersData.add(copyInputDataList(inputDataBuyers.get(i)));
+                    }
+                    recalcPrices(sellersData, buyersData, sellersVals, buyersVals, initValSellers, initValBuyers, p, this.maxNum);
+
+                    double maxDiff = 0;
+                    Double[] lastVals;
+                    int k = 0;
+                    Double c = 0.5;
+                    Double alpha;            
+                    do
+                    {
+                        lastVals = sellersVals.clone();
+                        FixedPricesForVariational fpv = new FixedPricesForVariational(sellersData, buyersData);
+                        fpv.auctionModel(0);
+                        alpha = c/(k+1);
+                        for(int i=0; i<sellersVals.length; i++)
+                        {
+                            sellersVals[i]=(1-alpha)*sellersVals[i]+alpha*fpv.getOutputSellers()[i];
+                        }
+                        for(int i=0; i<buyersVals.length; i++)
+                        {
+                            buyersVals[i]=(1-alpha)*buyersVals[i]+alpha*fpv.getOutputBuyers()[i];
+                        }
+
+
+                        sellersData = new ArrayList<InputData>();
+                        buyersData = new ArrayList<InputData>();
+                        for (int i = 0; i<inputDataSellers.size();i++)
+                        {
+                            sellersData.add(copyInputDataList(inputDataSellers.get(i)));
+                        }
+                        for (int i = 0; i<inputDataBuyers.size();i++)
+                        {
+                            buyersData.add(copyInputDataList(inputDataBuyers.get(i)));
+                        }
+                        recalcPrices(sellersData, buyersData, sellersVals, buyersVals, initValSellers, initValBuyers, p, this.maxNum);
+
+
+                        k++;
+                        //System.out.println(findMaxDiff(lastVals, sellersVals));
+                        //printArray(sellersVals);
+                        //printArray(lastVals);
+                    }
+                    while(findMaxDiff(lastVals, sellersVals)>0.001);
+                    System.out.print("Price: "+p+"      ");
+                    printArray(sellersVals);
+                    double d=0;
+                    if (isFunc)
+                        d=calculateCosts(this.costs, sellersVals[0]);
+                    else
+                        d=this.costs;
+                    Double profit = (p-d)*sellersVals[0];
+                    ret.add(new ProfitItem(profit, p));
+                    p+=step;
                 }
-                for(int i=0; i<buyersVals.length; i++)
-                {
-                    buyersVals[i]=(1-alpha)*buyersVals[i]+alpha*fpv.getOutputBuyers()[i];
-                }
-                
-                
-                sellersData = new ArrayList<InputData>();
-                buyersData = new ArrayList<InputData>();
-                for (int i = 0; i<inputDataSellers.size();i++)
-                {
-                    sellersData.add(copyInputDataList(inputDataSellers.get(i)));
-                }
-                for (int i = 0; i<inputDataBuyers.size();i++)
-                {
-                    buyersData.add(copyInputDataList(inputDataBuyers.get(i)));
-                }
-                recalcPrices(sellersData, buyersData, sellersVals, buyersVals, initValSellers, initValBuyers, p, this.maxNum);
-                
-                
-                k++;
-                //System.out.println(findMaxDiff(lastVals, sellersVals));
-                //printArray(sellersVals);
-                //printArray(lastVals);
+                aVal+=aStep;
             }
-            while(findMaxDiff(lastVals, sellersVals)>0.001);
-            System.out.print("Price: "+p+"      ");
-            printArray(sellersVals);
-            double d=0;
-            if (isFunc)
-                d=calculateCosts(this.costs, sellersVals[0]);
-            else
-                d=this.costs;
-            Double profit = (p-d)*sellersVals[0];
-            ret.add(new ProfitItem(profit, p));
-            p+=step;
+            bVal+=bStep;
         }
-        
         return ret;
     }
 }
