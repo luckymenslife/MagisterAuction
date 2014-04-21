@@ -83,6 +83,20 @@ public class MainForm extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jCheckBox2 = new javax.swing.JCheckBox();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jButton11 = new javax.swing.JButton();
+        jTextField18 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
 
         fileChooser.setDialogTitle("Выберите файл данных");
 
@@ -435,6 +449,135 @@ public class MainForm extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Цены зависят от объема продаж", jPanel3);
 
+        jLabel14.setText("Стоимость сырья на изготовление 1 ед. товара");
+
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("Укажите путь к файлу данных покупателей");
+
+        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField15ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Обзор");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Рассчитать и построить график");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Максимальное значение a");
+
+        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField16ActionPerformed(evt);
+            }
+        });
+
+        jTextField17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField17ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Укажите путь к файлу данных продавцов");
+
+        jButton11.setText("Обзор");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField18ActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("Максимальное значение b");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField14)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jTextField18))))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11))
+                .addGap(3, 3, 3)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton10)
+                .addContainerGap())
+        );
+
+        jTabbedPane3.addTab("Объем продаж зависит от параметров", jPanel4);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -452,245 +595,47 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         int returnVal = fileChooser.showOpenDialog(this);
-    if (returnVal == JFileChooser.APPROVE_OPTION) {
-        File file = fileChooser.getSelectedFile();
-        try {
-            jTextField3.setText(file.getAbsolutePath());
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-            List<InputData> arr = new ArrayList<InputData>();
-            while ((line = reader.readLine()) != null) {
-                String[] tmp = line.split(" ");
-                InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
-                arr.add(input);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try {
+                jTextField13.setText(file.getAbsolutePath());
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+                List<InputData> arr = new ArrayList<InputData>();
+                while ((line = reader.readLine()) != null) {
+                    String[] tmp = line.split(" ");
+                    InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
+                    arr.add(input);
+                }
+                //Collections.sort(arr);
+                for(int i = 0; i<arr.size();i++)
+                {
+                    System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
+                }
+                this.inpDSellers=arr;
+                // What to do with the file, e.g. display it in a TextArea
+                //textarea.read( new FileReader( file.getAbsolutePath() ), null );
+            } catch (Exception ex) {
+                //System.out.println("problem accessing file"+file.getAbsolutePath());
             }
-            //Collections.sort(arr);
-            for(int i = 0; i<arr.size();i++)
-            {
-                System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
-            }
-            this.inpD=arr;
-          // What to do with the file, e.g. display it in a TextArea
-          //textarea.read( new FileReader( file.getAbsolutePath() ), null );
-        } catch (Exception ex) {
-          //System.out.println("problem accessing file"+file.getAbsolutePath());
+        } else {
+            System.out.println("File access cancelled by user.");
         }
-    } else {
-        System.out.println("File access cancelled by user.");
-    }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        double mainNum = Float.valueOf(jTextField4.getText());
-        double mainCosts = Float.valueOf(jTextField1.getText());
-        double mainVol = Float.valueOf(jTextField2.getText());
-        double sum = 0;
-        for(int i = 0; i<inpD.size();i++)
-        {
-            sum+=inpD.get(i).getNumber();
-        }
-        if (sum < mainVol)
-            JOptionPane.showConfirmDialog(rootPane, "Объем закупок слишком большой, попробуйте его уменьшить,\nлибо добавить участников аукциона", "Попробуйте уменьшить объем закупок", JOptionPane.CANCEL_OPTION);
-        else
-        {
-            //Функция моделирования принимает информацию о других участниках аукциона,
-            //максимальное количество товара нашего продавца,
-            //величину затраты на производство единицы товара,
-            //объём закупок на рынке
-            //Возвращает - массив прибыль/цена для графика
-            FixedPriceFixedVolumeModeller fpfvm = new FixedPriceFixedVolumeModeller(inpD, mainCosts, mainNum, mainVol);
-            List <ProfitItem> piList = fpfvm.auctionModel();
-            for(int i = 0; i<piList.size();i++)
-            {
-                System.out.println(piList.get(i).getPrice()+"   "+piList.get(i).getProfit());
-            }
-            auctionChart = new AuctionChart("Результаты",piList);
-            auctionChart.pack();
-            RefineryUtilities.centerFrameOnScreen(auctionChart);
-            auctionChart.setVisible(true);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_jTextField13ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       int returnVal = fileChooser.showOpenDialog(this);
-    if (returnVal == JFileChooser.APPROVE_OPTION) {
-        File file = fileChooser.getSelectedFile();
-        try {
-            jTextField7.setText(file.getAbsolutePath());
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-            List<InputData> arr = new ArrayList<InputData>();
-            while ((line = reader.readLine()) != null) {
-                String[] tmp = line.split(" ");
-                InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
-                arr.add(input);
-            }
-            //Collections.sort(arr);
-            for(int i = 0; i<arr.size();i++)
-            {
-                System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
-            }
-            this.inpDBuyers=arr;
-          // What to do with the file, e.g. display it in a TextArea
-          //textarea.read( new FileReader( file.getAbsolutePath() ), null );
-        } catch (Exception ex) {
-          //System.out.println("problem accessing file"+file.getAbsolutePath());
-        }
-    } else {
-        System.out.println("File access cancelled by user.");
-    }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // Create special type and execute a modelling function.
-        // Then generate a plot from functions output data
-        double mainNum = Float.valueOf(jTextField8.getText());
-        double mainCosts = Float.valueOf(jTextField5.getText());
-        //Float mainVol = Float.valueOf(jTextField2.getText());
-        double sumSellers = 0;
-        double sumBuyers = 0;
-        for(int i = 0; i<inpDSellers.size();i++)
-        {
-            sumSellers+=inpDSellers.get(i).getNumber();
-        }
-        for(int i = 0; i<inpDBuyers.size();i++)
-        {
-            sumBuyers+=inpDBuyers.get(i).getNumber();
-        }
-        //if (sumSellers < sumBuyers)
-        //    JOptionPane.showConfirmDialog(rootPane, "Объем закупок слишком большой, попробуйте его уменьшить,\nлибо добавить участников аукциона", "Попробуйте уменьшить объем закупок", JOptionPane.CANCEL_OPTION);
-        //else
-        //{
-            //Функция моделирования принимает информацию о других участниках аукциона,
-            //максимальное количество товара нашего продавца,
-            //величину затраты на производство единицы товара
-            //Возвращает - массив прибыль/цена для графика
-            FixedPricesModeller fpm = new FixedPricesModeller(inpDSellers, inpDBuyers, mainCosts, mainNum);
-            double constBuyer = 0;
-            if ((jCheckBox1.isSelected())&&!jTextField10.getText().isEmpty())
-                constBuyer = Float.valueOf(jTextField10.getText());
-            List <ProfitItem> piList = fpm.auctionModel(constBuyer);
-            for(int i = 0; i<piList.size();i++)
-            {
-                System.out.println(piList.get(i).getPrice()+"   "+piList.get(i).getProfit());
-            }
-            auctionChart = new AuctionChart("Результаты",piList);
-            auctionChart.pack();
-            RefineryUtilities.centerFrameOnScreen(auctionChart);
-            auctionChart.setVisible(true);
-        //}
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        int returnVal = fileChooser.showOpenDialog(this);
-    if (returnVal == JFileChooser.APPROVE_OPTION) {
-        File file = fileChooser.getSelectedFile();
-        try {
-            jTextField9.setText(file.getAbsolutePath());
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-            List<InputData> arr = new ArrayList<InputData>();
-            while ((line = reader.readLine()) != null) {
-                String[] tmp = line.split(" ");
-                InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
-                arr.add(input);
-            }
-            //Collections.sort(arr);
-            for(int i = 0; i<arr.size();i++)
-            {
-                System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
-            }
-            this.inpDSellers=arr;
-          // What to do with the file, e.g. display it in a TextArea
-          //textarea.read( new FileReader( file.getAbsolutePath() ), null );
-        } catch (Exception ex) {
-          //System.out.println("problem accessing file"+file.getAbsolutePath());
-        }
-    } else {
-        System.out.println("File access cancelled by user.");
-    }
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        if (jCheckBox1.isSelected()) jTextField10.setEnabled(true);
-        else jTextField10.setEnabled(false);
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        int returnVal = fileChooser.showOpenDialog(this);
-    if (returnVal == JFileChooser.APPROVE_OPTION) {
-        File file = fileChooser.getSelectedFile();
-        try {
-            jTextField11.setText(file.getAbsolutePath());
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-            List<InputData> arr = new ArrayList<InputData>();
-            while ((line = reader.readLine()) != null) {
-                String[] tmp = line.split(" ");
-                InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
-                arr.add(input);
-            }
-            //Collections.sort(arr);
-            for(int i = 0; i<arr.size();i++)
-            {
-                System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
-            }
-            this.inpDBuyers=arr;
-          // What to do with the file, e.g. display it in a TextArea
-          //textarea.read( new FileReader( file.getAbsolutePath() ), null );
-        } catch (Exception ex) {
-          //System.out.println("problem accessing file"+file.getAbsolutePath());
-        }
-    } else {
-        System.out.println("File access cancelled by user.");
-    }
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jTextField12ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // Create special type and execute a modelling function.
@@ -729,50 +674,280 @@ public class MainForm extends javax.swing.JFrame {
             auctionChart.pack();
             RefineryUtilities.centerFrameOnScreen(auctionChart);
             auctionChart.setVisible(true);
-        //}
+            //}
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
-
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         int returnVal = fileChooser.showOpenDialog(this);
-    if (returnVal == JFileChooser.APPROVE_OPTION) {
-        File file = fileChooser.getSelectedFile();
-        try {
-            jTextField13.setText(file.getAbsolutePath());
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-            List<InputData> arr = new ArrayList<InputData>();
-            while ((line = reader.readLine()) != null) {
-                String[] tmp = line.split(" ");
-                InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
-                arr.add(input);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try {
+                jTextField11.setText(file.getAbsolutePath());
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+                List<InputData> arr = new ArrayList<InputData>();
+                while ((line = reader.readLine()) != null) {
+                    String[] tmp = line.split(" ");
+                    InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
+                    arr.add(input);
+                }
+                //Collections.sort(arr);
+                for(int i = 0; i<arr.size();i++)
+                {
+                    System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
+                }
+                this.inpDBuyers=arr;
+                // What to do with the file, e.g. display it in a TextArea
+                //textarea.read( new FileReader( file.getAbsolutePath() ), null );
+            } catch (Exception ex) {
+                //System.out.println("problem accessing file"+file.getAbsolutePath());
             }
-            //Collections.sort(arr);
-            for(int i = 0; i<arr.size();i++)
-            {
-                System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
-            }
-            this.inpDSellers=arr;
-          // What to do with the file, e.g. display it in a TextArea
-          //textarea.read( new FileReader( file.getAbsolutePath() ), null );
-        } catch (Exception ex) {
-          //System.out.println("problem accessing file"+file.getAbsolutePath());
+        } else {
+            System.out.println("File access cancelled by user.");
         }
-    } else {
-        System.out.println("File access cancelled by user.");
-    }
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField10ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if (jCheckBox1.isSelected()) jTextField10.setEnabled(true);
+        else jTextField10.setEnabled(false);
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int returnVal = fileChooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try {
+                jTextField9.setText(file.getAbsolutePath());
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+                List<InputData> arr = new ArrayList<InputData>();
+                while ((line = reader.readLine()) != null) {
+                    String[] tmp = line.split(" ");
+                    InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
+                    arr.add(input);
+                }
+                //Collections.sort(arr);
+                for(int i = 0; i<arr.size();i++)
+                {
+                    System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
+                }
+                this.inpDSellers=arr;
+                // What to do with the file, e.g. display it in a TextArea
+                //textarea.read( new FileReader( file.getAbsolutePath() ), null );
+            } catch (Exception ex) {
+                //System.out.println("problem accessing file"+file.getAbsolutePath());
+            }
+        } else {
+            System.out.println("File access cancelled by user.");
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // Create special type and execute a modelling function.
+        // Then generate a plot from functions output data
+        double mainNum = Float.valueOf(jTextField8.getText());
+        double mainCosts = Float.valueOf(jTextField5.getText());
+        //Float mainVol = Float.valueOf(jTextField2.getText());
+        double sumSellers = 0;
+        double sumBuyers = 0;
+        for(int i = 0; i<inpDSellers.size();i++)
+        {
+            sumSellers+=inpDSellers.get(i).getNumber();
+        }
+        for(int i = 0; i<inpDBuyers.size();i++)
+        {
+            sumBuyers+=inpDBuyers.get(i).getNumber();
+        }
+        //if (sumSellers < sumBuyers)
+        //    JOptionPane.showConfirmDialog(rootPane, "Объем закупок слишком большой, попробуйте его уменьшить,\nлибо добавить участников аукциона", "Попробуйте уменьшить объем закупок", JOptionPane.CANCEL_OPTION);
+        //else
+        //{
+            //Функция моделирования принимает информацию о других участниках аукциона,
+            //максимальное количество товара нашего продавца,
+            //величину затраты на производство единицы товара
+            //Возвращает - массив прибыль/цена для графика
+            FixedPricesModeller fpm = new FixedPricesModeller(inpDSellers, inpDBuyers, mainCosts, mainNum);
+            double constBuyer = 0;
+            if ((jCheckBox1.isSelected())&&!jTextField10.getText().isEmpty())
+            constBuyer = Float.valueOf(jTextField10.getText());
+            List <ProfitItem> piList = fpm.auctionModel(constBuyer);
+            for(int i = 0; i<piList.size();i++)
+            {
+                System.out.println(piList.get(i).getPrice()+"   "+piList.get(i).getProfit());
+            }
+            auctionChart = new AuctionChart("Результаты",piList);
+            auctionChart.pack();
+            RefineryUtilities.centerFrameOnScreen(auctionChart);
+            auctionChart.setVisible(true);
+            //}
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int returnVal = fileChooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try {
+                jTextField7.setText(file.getAbsolutePath());
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+                List<InputData> arr = new ArrayList<InputData>();
+                while ((line = reader.readLine()) != null) {
+                    String[] tmp = line.split(" ");
+                    InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
+                    arr.add(input);
+                }
+                //Collections.sort(arr);
+                for(int i = 0; i<arr.size();i++)
+                {
+                    System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
+                }
+                this.inpDBuyers=arr;
+                // What to do with the file, e.g. display it in a TextArea
+                //textarea.read( new FileReader( file.getAbsolutePath() ), null );
+            } catch (Exception ex) {
+                //System.out.println("problem accessing file"+file.getAbsolutePath());
+            }
+        } else {
+            System.out.println("File access cancelled by user.");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        double mainNum = Float.valueOf(jTextField4.getText());
+        double mainCosts = Float.valueOf(jTextField1.getText());
+        double mainVol = Float.valueOf(jTextField2.getText());
+        double sum = 0;
+        for(int i = 0; i<inpD.size();i++)
+        {
+            sum+=inpD.get(i).getNumber();
+        }
+        if (sum < mainVol)
+        JOptionPane.showConfirmDialog(rootPane, "Объем закупок слишком большой, попробуйте его уменьшить,\nлибо добавить участников аукциона", "Попробуйте уменьшить объем закупок", JOptionPane.CANCEL_OPTION);
+        else
+        {
+            //Функция моделирования принимает информацию о других участниках аукциона,
+            //максимальное количество товара нашего продавца,
+            //величину затраты на производство единицы товара,
+            //объём закупок на рынке
+            //Возвращает - массив прибыль/цена для графика
+            FixedPriceFixedVolumeModeller fpfvm = new FixedPriceFixedVolumeModeller(inpD, mainCosts, mainNum, mainVol);
+            List <ProfitItem> piList = fpfvm.auctionModel();
+            for(int i = 0; i<piList.size();i++)
+            {
+                System.out.println(piList.get(i).getPrice()+"   "+piList.get(i).getProfit());
+            }
+            auctionChart = new AuctionChart("Результаты",piList);
+            auctionChart.pack();
+            RefineryUtilities.centerFrameOnScreen(auctionChart);
+            auctionChart.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int returnVal = fileChooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try {
+                jTextField3.setText(file.getAbsolutePath());
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+                List<InputData> arr = new ArrayList<InputData>();
+                while ((line = reader.readLine()) != null) {
+                    String[] tmp = line.split(" ");
+                    InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
+                    arr.add(input);
+                }
+                //Collections.sort(arr);
+                for(int i = 0; i<arr.size();i++)
+                {
+                    System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
+                }
+                this.inpD=arr;
+                // What to do with the file, e.g. display it in a TextArea
+                //textarea.read( new FileReader( file.getAbsolutePath() ), null );
+            } catch (Exception ex) {
+                //System.out.println("problem accessing file"+file.getAbsolutePath());
+            }
+        } else {
+            System.out.println("File access cancelled by user.");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField15ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField16ActionPerformed
+
+    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField17ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -818,6 +993,8 @@ public class MainForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFileChooser fileChooser;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -825,12 +1002,18 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -842,12 +1025,18 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
