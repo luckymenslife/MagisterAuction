@@ -52,11 +52,6 @@ public class ProfitItemParameter implements Comparable<ProfitItemParameter>
         this.profit = profit;
     }
 
-    public ProfitItemParameter(double profit, double price) {
-        this.profit = profit;
-        this.price = price;
-    }
-
     @Override
     public int compareTo(ProfitItemParameter o) {
         if (getPrice()<o.getPrice()) return -1;

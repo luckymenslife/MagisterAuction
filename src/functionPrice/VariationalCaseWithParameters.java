@@ -144,23 +144,24 @@ public class VariationalCaseWithParameters
         return (initCost-num/500);
     }
     
-    public List<ProfitItemParameter> auctionModel(boolean isFunc)
+    public List<ProfitItemParameter> auctionModel()
     {
         //Взятые с потолка коэффициенты
-        Double aCoef = 1000;
-        Double bCoef = 300;
+        Double aCoef = 1000.0;
+        Double bCoef = 300.0;
         
         Double aStep = 0.01*this.maxA;
         Double bStep = 0.01*this.maxB;
         Double aVal = 1.0;
         Double bVal = 0.0;
         Double zVal = this.minValZ;
+        List<ProfitItemParameter> ret = new ArrayList<ProfitItemParameter>();
         
         //Здесь надо вставить цикл по a и b
         while (bVal<this.maxB)
         {
             while (aVal<this.maxA)
-            
+            {
                 zVal = aVal*this.minValZ+bVal;
                 Double selfCost = this.rawCost + (aVal*aCoef+bVal*bCoef)/zVal;
                 Double[] sellersVals = new Double[inputDataSellers.size()+1];
@@ -171,11 +172,9 @@ public class VariationalCaseWithParameters
                     buyersVals[i]=0.0;
                 Double initValSellers = 57.0;
                 Double initValBuyers = 62.0;
-                float disp = 10;
-                double p = this.costs;
+                double p = selfCost;
                 double step = (double) (0.001*p);
                 double maxPriceVal = initValSellers+5*step;
-                List<ProfitItem> ret = new ArrayList<ProfitItem>();
 
                 while (p<maxPriceVal)
                 {
@@ -189,9 +188,8 @@ public class VariationalCaseWithParameters
                     {
                         buyersData.add(copyInputDataList(inputDataBuyers.get(i)));
                     }
-                    recalcPrices(sellersData, buyersData, sellersVals, buyersVals, initValSellers, initValBuyers, p, this.maxNum);
+                    recalcPrices(sellersData, buyersData, sellersVals, buyersVals, initValSellers, initValBuyers, p, zVal);
 
-                    double maxDiff = 0;
                     Double[] lastVals;
                     int k = 0;
                     Double c = 0.5;
@@ -222,7 +220,7 @@ public class VariationalCaseWithParameters
                         {
                             buyersData.add(copyInputDataList(inputDataBuyers.get(i)));
                         }
-                        recalcPrices(sellersData, buyersData, sellersVals, buyersVals, initValSellers, initValBuyers, p, this.maxNum);
+                        recalcPrices(sellersData, buyersData, sellersVals, buyersVals, initValSellers, initValBuyers, p, zVal);
 
 
                         k++;
@@ -233,13 +231,9 @@ public class VariationalCaseWithParameters
                     while(findMaxDiff(lastVals, sellersVals)>0.001);
                     System.out.print("Price: "+p+"      ");
                     printArray(sellersVals);
-                    double d=0;
-                    if (isFunc)
-                        d=calculateCosts(this.costs, sellersVals[0]);
-                    else
-                        d=this.costs;
-                    Double profit = (p-d)*sellersVals[0];
-                    ret.add(new ProfitItem(profit, p));
+                    double d=selfCost;
+                    Double profit = (p-d)*sellersVals[0]-d*(zVal-sellersVals[0]);
+                    ret.add(new ProfitItemParameter(profit, p, selfCost, aVal, bVal));
                     p+=step;
                 }
                 aVal+=aStep;
