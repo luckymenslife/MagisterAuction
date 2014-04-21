@@ -14,14 +14,14 @@ import java.util.List;
  *
  * @author iLGiZ
  */
-public class VariationalCase 
+public class VariationalCaseWithParameters 
 {
     private List<InputData> inputDataSellers;
     private List<InputData> inputDataBuyers;
     private Double costs;
     private double maxNum;
 
-    public VariationalCase(List<InputData> inputDataSellers, List<InputData> inputDataBuyers, Double costs, double maxNum) {
+    public VariationalCaseWithParameters(List<InputData> inputDataSellers, List<InputData> inputDataBuyers, Double costs, double maxNum) {
         this.inputDataSellers = inputDataSellers;
         this.inputDataBuyers = inputDataBuyers;
         this.costs = costs;
