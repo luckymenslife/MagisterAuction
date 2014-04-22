@@ -116,7 +116,7 @@ public class VariationalCaseWithParameters
         for(int i = 0; i<inputDataBuyers.size(); i++)
         {
             tempData = inputDataBuyers.remove(i);
-            tempData.setPrice(priceFunction(sellers[i], initValBuyers, i+1));
+            tempData.setPrice(priceFunction(buyers[i], initValBuyers, i+1));
             tempData.setId(i);
             inputDataBuyers.add(i, tempData);
         }

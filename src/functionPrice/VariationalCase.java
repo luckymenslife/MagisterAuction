@@ -62,8 +62,8 @@ public class VariationalCase
    
     private Double priceFunction_new(Double val, Double initVal, int k)
     {
-        Double ret = initVal-k%5;
-        ret+=(val/500);
+        Double ret = initVal+(k%4)*2;
+        ret+=(val/600);
         return ret;
     } 
     
@@ -112,7 +112,7 @@ public class VariationalCase
         for(int i = 0; i<inputDataBuyers.size(); i++)
         {
             tempData = inputDataBuyers.remove(i);
-            tempData.setPrice(priceFunction(sellers[i], initValBuyers, i+1));
+            tempData.setPrice(priceFunction(buyers[i], initValBuyers, i+1));
             tempData.setId(i);
             inputDataBuyers.add(i, tempData);
         }
@@ -149,15 +149,19 @@ public class VariationalCase
         for(int i = 0; i < buyersVals.length; i++)
             buyersVals[i]=0.0;
         Double initValSellers = 57.0;
-        Double initValBuyers = 62.0;
+        Double initValBuyers = 68.0;
         float disp = 10;
         double p = this.costs;
         double step = (double) (0.001*p);
-        double maxPriceVal = initValSellers+5*step;
+        double maxPriceVal = initValSellers+40*step;
         List<ProfitItem> ret = new ArrayList<ProfitItem>();
-        
-        while (p<maxPriceVal)
+        Double profit = 0.0;
+        while ((p<maxPriceVal)||(profit > 1))
         {
+            for(int i = 0; i < sellersVals.length; i++)
+                sellersVals[i]=0.0;
+            for(int i = 0; i < buyersVals.length; i++)
+                buyersVals[i]=0.0;
             List<InputData> sellersData = new ArrayList<InputData>();
             List<InputData> buyersData = new ArrayList<InputData>();
             for (int i = 0; i<inputDataSellers.size();i++)
@@ -217,7 +221,7 @@ public class VariationalCase
                 d=calculateCosts(this.costs, sellersVals[0]);
             else
                 d=this.costs;
-            Double profit = (p-d)*sellersVals[0];
+            profit = (p-d)*sellersVals[0];
             ret.add(new ProfitItem(profit, p));
             p+=step;
         }
