@@ -15,9 +15,39 @@ public class ProfitItemParameter implements Comparable<ProfitItemParameter>
     private double selfCost;
     private double aVal;
     private double bVal;
+    private double num;
+    private double zVal;
+
+    public void setSelfCost(double selfCost) {
+        this.selfCost = selfCost;
+    }
+
+    public void setzVal(double zVal) {
+        this.zVal = zVal;
+    }
+
+    public double getzVal() {
+        return zVal;
+    }
+
+    public void setaVal(double aVal) {
+        this.aVal = aVal;
+    }
+
+    public void setbVal(double bVal) {
+        this.bVal = bVal;
+    }
+
+    public void setNum(double num) {
+        this.num = num;
+    }
 
     public double getSelfCost() {
         return selfCost;
+    }
+
+    public double getNum() {
+        return num;
     }
 
     public double getaVal() {
@@ -28,12 +58,15 @@ public class ProfitItemParameter implements Comparable<ProfitItemParameter>
         return bVal;
     }
 
-    public ProfitItemParameter(double profit, double price, double selfCost, double aVal, double bVal) {
+    public ProfitItemParameter(double profit, double price, double selfCost, double aVal, double bVal, double num, double zVal) {
         this.profit = profit;
         this.price = price;
         this.selfCost = selfCost;
         this.aVal = aVal;
         this.bVal = bVal;
+        this.num = num;
+        this.zVal = zVal;
+        
     }
 
     public double getPrice() {
@@ -50,6 +83,11 @@ public class ProfitItemParameter implements Comparable<ProfitItemParameter>
 
     public void setProfit(double profit) {
         this.profit = profit;
+    }
+    
+    public void print()
+    {
+        System.out.println(this.price+"   "+this.profit+"      "+this.selfCost+", "+", "+this.num+", "+this.zVal+", "+this.aVal+", "+this.bVal);
     }
 
     @Override

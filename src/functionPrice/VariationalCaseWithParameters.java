@@ -22,14 +22,72 @@ public class VariationalCaseWithParameters
     private double maxA;
     private double maxB;
     private double minValZ;
+    private double fine;
 
-    public VariationalCaseWithParameters(List<InputData> inputDataSellers, List<InputData> inputDataBuyers, Double rawCost, double maxA, double maxB, double minValZ) {
+    public void setInputDataSellers(List<InputData> inputDataSellers) {
+        this.inputDataSellers = inputDataSellers;
+    }
+
+    public void setInputDataBuyers(List<InputData> inputDataBuyers) {
+        this.inputDataBuyers = inputDataBuyers;
+    }
+
+    public void setRawCost(Double rawCost) {
+        this.rawCost = rawCost;
+    }
+
+    public void setMaxA(double maxA) {
+        this.maxA = maxA;
+    }
+
+    public void setMaxB(double maxB) {
+        this.maxB = maxB;
+    }
+
+    public void setMinValZ(double minValZ) {
+        this.minValZ = minValZ;
+    }
+
+    public void setFine(double fine) {
+        this.fine = fine;
+    }
+
+    public List<InputData> getInputDataSellers() {
+        return inputDataSellers;
+    }
+
+    public List<InputData> getInputDataBuyers() {
+        return inputDataBuyers;
+    }
+
+    public Double getRawCost() {
+        return rawCost;
+    }
+
+    public double getMaxA() {
+        return maxA;
+    }
+
+    public double getMaxB() {
+        return maxB;
+    }
+
+    public double getMinValZ() {
+        return minValZ;
+    }
+
+    public double getFine() {
+        return fine;
+    }
+
+    public VariationalCaseWithParameters(List<InputData> inputDataSellers, List<InputData> inputDataBuyers, Double rawCost, double maxA, double maxB, double minValZ, double fine) {
         this.inputDataSellers = inputDataSellers;
         this.inputDataBuyers = inputDataBuyers;
         this.rawCost = rawCost;
         this.maxA = maxA;
         this.maxB = maxB;
         this.minValZ = minValZ;
+        this.fine = fine;
     }
     
     private Double priceFunction(Double[] sellers, Double[] buyers, int k, Double initVal, Float disp)
@@ -66,7 +124,7 @@ public class VariationalCaseWithParameters
    
     private Double priceFunction_new(Double val, Double initVal, int k)
     {
-        Double ret = initVal-k%5;
+        Double ret = initVal+k%4;
         ret+=(val/500);
         return ret;
     } 
@@ -149,9 +207,9 @@ public class VariationalCaseWithParameters
         //Взятые с потолка коэффициенты
         Double aCoef = 1000.0;
         Double bCoef = 300.0;
-        
-        Double aStep = 0.01*this.maxA;
-        Double bStep = 0.01*this.maxB;
+        //Double aStep = 0.01*this.maxA;
+        Double aStep = 1.0;
+        Double bStep = 0.1*this.maxB;
         Double aVal = 1.0;
         Double bVal = 0.0;
         Double zVal = this.minValZ;
@@ -160,8 +218,12 @@ public class VariationalCaseWithParameters
         //Здесь надо вставить цикл по a и b
         while (bVal<this.maxB)
         {
+            System.out.println("B:   "+bVal);
+            
+            aVal = 1.0;
             while (aVal<this.maxA)
             {
+                System.out.println("A:   "+aVal);
                 zVal = aVal*this.minValZ+bVal;
                 Double selfCost = this.rawCost + (aVal*aCoef+bVal*bCoef)/zVal;
                 Double[] sellersVals = new Double[inputDataSellers.size()+1];
@@ -174,7 +236,7 @@ public class VariationalCaseWithParameters
                 Double initValBuyers = 62.0;
                 double p = selfCost;
                 double step = (double) (0.001*p);
-                double maxPriceVal = initValSellers+5*step;
+                double maxPriceVal = selfCost+10*step;
 
                 while (p<maxPriceVal)
                 {
@@ -228,12 +290,14 @@ public class VariationalCaseWithParameters
                         //printArray(sellersVals);
                         //printArray(lastVals);
                     }
-                    while(findMaxDiff(lastVals, sellersVals)>0.001);
-                    System.out.print("Price: "+p+"      ");
-                    printArray(sellersVals);
+                    while(findMaxDiff(lastVals, sellersVals)>0.01);
+                    //System.out.print("Price: "+p+"      ");
+                    //printArray(sellersVals);
                     double d=selfCost;
-                    Double profit = (p-d)*sellersVals[0]-d*(zVal-sellersVals[0]);
-                    ret.add(new ProfitItemParameter(profit, p, selfCost, aVal, bVal));
+                    Double profit = (p-d)*sellersVals[0]-this.fine*(zVal-sellersVals[0]);
+                    ProfitItemParameter pip = new ProfitItemParameter(profit, p, selfCost, aVal, bVal, sellersVals[0], zVal);
+                    ret.add(pip);
+                    pip.print();
                     p+=step;
                 }
                 aVal+=aStep;

@@ -115,7 +115,8 @@ public class FixedPricesForVariational
             lastSum = inputDataBuyers.get(i).getCurrentSum();
             lastNum = inputDataBuyers.get(i).getNumber();
         }
-        return null;
+        //return null;
+        return new BuyersPriceInterval(lastPrice, price, lastSum-lastNum, lastSum-lastNum, inputDataBuyers.size(), lastNum);
     }
     
     public void auctionModel(double constBuyers)

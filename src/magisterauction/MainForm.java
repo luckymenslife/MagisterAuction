@@ -8,6 +8,8 @@ import fixedPrice.FixedPriceFixedVolumeModeller;
 import fixedPrice.FixedPricesModeller;
 import fixedPrice.InputData;
 import fixedPrice.ProfitItem;
+import fixedPrice.ProfitItemParameter;
+import functionPrice.VariationalCaseWithParameters;
 import functionPrice.VariationalCase;
 import java.io.*;
 import java.util.ArrayList;
@@ -99,6 +101,8 @@ public class MainForm extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jTextField19 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        jTextField20 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
 
         fileChooser.setDialogTitle("Выберите файл данных");
 
@@ -194,7 +198,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -325,7 +329,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox1)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addContainerGap())
         );
@@ -428,7 +432,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBox2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -520,6 +524,14 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel19.setText("Мин. возможный объем произв-ва");
 
+        jTextField20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField20ActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Неустойка за товар");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -545,9 +557,11 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                             .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jTextField14, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField20, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
@@ -575,7 +589,11 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -602,7 +620,7 @@ public class MainForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+            .addComponent(jTabbedPane3)
         );
 
         jTabbedPane3.getAccessibleContext().setAccessibleName("Фиксированные цены");
@@ -942,11 +960,75 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField15ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        int returnVal = fileChooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try {
+                jTextField15.setText(file.getAbsolutePath());
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+                List<InputData> arr = new ArrayList<InputData>();
+                while ((line = reader.readLine()) != null) {
+                    String[] tmp = line.split(" ");
+                    InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
+                    arr.add(input);
+                }
+                //Collections.sort(arr);
+                for(int i = 0; i<arr.size();i++)
+                {
+                    System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
+                }
+                this.inpDBuyers=arr;
+                // What to do with the file, e.g. display it in a TextArea
+                //textarea.read( new FileReader( file.getAbsolutePath() ), null );
+            } catch (Exception ex) {
+                //System.out.println("problem accessing file"+file.getAbsolutePath());
+            }
+        } else {
+            System.out.println("File access cancelled by user.");
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:// Create special type and execute a modelling function.
+        // Then generate a plot from functions output data
+        double minNum = Float.valueOf(jTextField19.getText());
+        double rawCosts = Float.valueOf(jTextField14.getText());
+        double maxA = Float.valueOf(jTextField16.getText());
+        double maxB = Float.valueOf(jTextField18.getText());
+        double fine = Float.valueOf(jTextField20.getText());
+        //Float mainVol = Float.valueOf(jTextField2.getText());
+        double sumSellers = 0;
+        double sumBuyers = 0;
+        for(int i = 0; i<inpDSellers.size();i++)
+        {
+            sumSellers+=inpDSellers.get(i).getNumber();
+        }
+        for(int i = 0; i<inpDBuyers.size();i++)
+        {
+            sumBuyers+=inpDBuyers.get(i).getNumber();
+        }
+        //if (sumSellers < sumBuyers)
+        //    JOptionPane.showConfirmDialog(rootPane, "Объем закупок слишком большой, попробуйте его уменьшить,\nлибо добавить участников аукциона", "Попробуйте уменьшить объем закупок", JOptionPane.CANCEL_OPTION);
+        //else
+        //{
+            //Функция моделирования принимает информацию о других участниках аукциона,
+            //максимальное количество товара нашего продавца,
+            //величину затраты на производство единицы товара
+            //Возвращает - массив прибыль/цена для графика
+            VariationalCaseWithParameters fpm = new VariationalCaseWithParameters(inpDSellers, inpDBuyers, rawCosts, maxA, maxB, minNum, fine);
+            double constBuyer = 0;
+            List <ProfitItemParameter> piList = fpm.auctionModel();
+            for(int i = 0; i<piList.size();i++)
+            {
+                //piList.get(i).print();
+                //System.out.println(piList.get(i).getPrice()+"   "+piList.get(i).getProfit());
+            }
+            //auctionChart = new AuctionChart("Результаты",piList);
+            //auctionChart.pack();
+            //RefineryUtilities.centerFrameOnScreen(auctionChart);
+            //auctionChart.setVisible(true);
+            //}
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
@@ -958,7 +1040,33 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField17ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
+        int returnVal = fileChooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try {
+                jTextField17.setText(file.getAbsolutePath());
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+                List<InputData> arr = new ArrayList<InputData>();
+                while ((line = reader.readLine()) != null) {
+                    String[] tmp = line.split(" ");
+                    InputData input = new InputData(Float.valueOf(tmp[0]),Float.valueOf(tmp[1]));
+                    arr.add(input);
+                }
+                //Collections.sort(arr);
+                for(int i = 0; i<arr.size();i++)
+                {
+                    System.out.println(arr.get(i).getPrice()+"   "+arr.get(i).getNumber());
+                }
+                this.inpDSellers=arr;
+                // What to do with the file, e.g. display it in a TextArea
+                //textarea.read( new FileReader( file.getAbsolutePath() ), null );
+            } catch (Exception ex) {
+                //System.out.println("problem accessing file"+file.getAbsolutePath());
+            }
+        } else {
+            System.out.println("File access cancelled by user.");
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
@@ -968,6 +1076,10 @@ public class MainForm extends javax.swing.JFrame {
     private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField19ActionPerformed
+
+    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField20ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1036,6 +1148,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1060,6 +1173,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
