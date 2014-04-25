@@ -1024,11 +1024,7 @@ public class MainForm extends javax.swing.JFrame {
                 //piList.get(i).print();
                 //System.out.println(piList.get(i).getPrice()+"   "+piList.get(i).getProfit());
             }
-            //auctionChart = new AuctionChart("Результаты",piList);
-            //auctionChart.pack();
-            //RefineryUtilities.centerFrameOnScreen(auctionChart);
-            //auctionChart.setVisible(true);
-            //}
+            
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
