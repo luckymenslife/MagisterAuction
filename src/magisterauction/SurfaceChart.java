@@ -28,8 +28,22 @@ public class SurfaceChart extends AbstractAnalysis {
     private FunctionMaker fm;
     private Double maxA;
     private Double maxB;
-    public static void start() throws Exception {
-        AnalysisLauncher.open(new SurfaceChart());
+    public void start(){
+        try
+        {
+            AnalysisLauncher.open(new SurfaceChart(fm, maxA, maxB));
+        }
+        catch(Exception ex)
+        {
+            System.err.println("There is problem while generating chart! \n"+ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
+
+    public SurfaceChart(FunctionMaker fm, Double maxA, Double maxB) {
+        this.fm = fm;
+        this.maxA = maxA;
+        this.maxB = maxB;
     }
 
     public void setFm(FunctionMaker fm) {
@@ -53,14 +67,14 @@ public class SurfaceChart extends AbstractAnalysis {
             }
         };
         // Define range and precision for the function to plot
-        Range rangeA = new Range(0, maxA);
+        Range rangeA = new Range(1, maxA);
         Range rangeB = new Range(0, maxB);
-        int stepsA = 4;
-        int stepsB = 10;
+        int stepsA = maxA.intValue();
+        int stepsB = maxB.intValue();
 
         // Create the object to represent the function over the given range.
         final Shape surface = Builder.buildOrthonormal(new OrthonormalGrid(rangeA, stepsA, rangeB, stepsB), mapper);
-        surface.setColorMapper(new ColorMapper(new ColorMapRainbow(), surface.getBounds().getZmin(), surface.getBounds().getZmax(), new Color(10, 10, 10, .5f)));
+        surface.setColorMapper(new ColorMapper(new ColorMapRainbow(), surface.getBounds().getZmin(), surface.getBounds().getZmax(), new Color(10, 10, 10, 0.95f)));
         surface.setFaceDisplayed(true);
         surface.setWireframeDisplayed(false);
 

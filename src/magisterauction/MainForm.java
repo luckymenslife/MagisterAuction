@@ -9,6 +9,8 @@ import fixedPrice.FixedPricesModeller;
 import fixedPrice.InputData;
 import fixedPrice.ProfitItem;
 import fixedPrice.ProfitItemParameter;
+import functionPrice.FunctionData;
+import functionPrice.FunctionMaker;
 import functionPrice.VariationalCaseWithParameters;
 import functionPrice.VariationalCase;
 import java.io.*;
@@ -1024,6 +1026,26 @@ public class MainForm extends javax.swing.JFrame {
                 //piList.get(i).print();
                 //System.out.println(piList.get(i).getPrice()+"   "+piList.get(i).getProfit());
             }
+            
+            List<FunctionData> fdl = new ArrayList<FunctionData>();
+            for(int i = 0; i<piList.size();i++)
+            {
+                FunctionData fd = new FunctionData(piList.get(i).getaVal(), piList.get(i).getbVal(), piList.get(i).getProfit());
+                fdl.add(fd);
+            }
+            FunctionMaker fm = new FunctionMaker(fdl);
+            SurfaceChart sc  = new SurfaceChart(fm, maxA, maxB);
+            
+            fm.print();
+            
+            System.out.println(fm.getResult(1.0,0.0));
+            System.out.println(fm.getResult(1.0,2.0));
+            System.out.println(fm.getResult(1.1,0.2));
+            System.out.println(fm.getResult(2.0,0.9));
+            System.out.println(fm.getResult(2.3,4.0));
+            System.out.println(fm.getResult(2.3,5.5));
+            System.out.println(fm.getResult(1.0,1.0));
+            sc.start();
             
     }//GEN-LAST:event_jButton10ActionPerformed
 

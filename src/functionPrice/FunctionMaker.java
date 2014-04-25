@@ -16,6 +16,13 @@ public class FunctionMaker
 {
     private List<FunctionData> ret;
 
+    
+    public void print()
+    {
+        for(int i = 0; i < ret.size(); i++)
+            ret.get(i).print();
+    }
+    
     public FunctionMaker(List<FunctionData> ret) {
         this.ret = ret;
     }
@@ -43,7 +50,7 @@ public class FunctionMaker
             int i=0, j=0;
             Double lastX = -1.0, lastY = -1.0, newX = -1.0, newY = -1.0;
             
-            while((newX<=x)||(newY<=y))
+            while((newX<x)||(newY<y))
             {
                 if ((x>newX)&&(x<=this.ret.get(i).getX()))
                     newX = this.ret.get(i).getX();
@@ -57,14 +64,16 @@ public class FunctionMaker
                 i++;
             }
             //lastX = x1, newX = x2, lastY = y1, newY = y2
-            
-            if ((lastX==newX)&&(lastY==newY))
-                return this.f(lastX, lastY);
+            //if (lastX < 0) lastX = newX;
+            //if (lastY < 0) lastY = newY;
+            //System.out.println(Double.compare(x, newX)+"     "+Double.compare(y, newY));
+            if ((Double.compare(x, newX)==0)&&(Double.compare(y, newY)==0))
+                return this.f(x, y);
             else
-                if (lastX==newX)
+                if (Double.compare(x, newX)==0)
                     return ((newY-y)*this.f(newX, lastY)/(2*(newY-lastY))+
                             (y-lastY)*this.f(newX, newY)/(2*(newY-lastY)));
-                if (lastY==newY)
+                if (Double.compare(y, newY)==0)
                     return ((newX-x)*this.f(lastX, newY)/(2*(newX-lastX))+
                             (x-lastX)*this.f(newX, newY)/(2*(newX-lastX)));
                 else
@@ -85,8 +94,8 @@ public class FunctionMaker
     private Double f(Double x, Double y)
     {
         for(int i = 0; i<this.ret.size(); i++)
-            if ((y == this.ret.get(i).getY())&&(x == this.ret.get(i).getX()))
+            if ((Double.compare(y, this.ret.get(i).getY())==0)&&(Double.compare(x, this.ret.get(i).getX())==0))
                 return this.ret.get(i).getZ();
-        return null;
+        return 0.0;
     }
 }

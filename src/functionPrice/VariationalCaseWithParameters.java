@@ -205,8 +205,8 @@ public class VariationalCaseWithParameters
     public List<ProfitItemParameter> auctionModel()
     {
         //Взятые с потолка коэффициенты
-        Double aCoef = 1000.0;
-        Double bCoef = 300.0;
+        Double aCoef = 2000.0;
+        Double bCoef = 200.0;
         //Double aStep = 0.01*this.maxA;
         Double aStep = 1.0;
         Double bStep = 0.1*this.maxB;
@@ -216,15 +216,21 @@ public class VariationalCaseWithParameters
         List<ProfitItemParameter> ret = new ArrayList<ProfitItemParameter>();
         
         //Здесь надо вставить цикл по a и b
-        while (bVal<this.maxB)
+        while (Double.compare(bVal, this.maxB)<1)
         {
-            System.out.println("B:   "+bVal);
+            //System.out.println("B:   "+bVal);
             
             aVal = 1.0;
-            while (aVal<this.maxA)
+            while (Double.compare(aVal,this.maxA)<1)
             {
-                System.out.println("A:   "+aVal);
-                zVal = aVal*this.minValZ+bVal;
+                Double masterProfit = 0.0;
+                Double masterP = 0.0;
+                Double masterSelfCost = 0.0;
+                Double masterSellerVal = 0.0;
+                Double masterZVal = 0.0;
+                
+                //System.out.println("A:   "+aVal);
+                zVal = aVal*this.minValZ+bVal*aVal;
                 Double selfCost = this.rawCost + (aVal*aCoef+bVal*bCoef)/zVal;
                 Double[] sellersVals = new Double[inputDataSellers.size()+1];
                 Double[] buyersVals = new Double[inputDataBuyers.size()];
@@ -237,7 +243,7 @@ public class VariationalCaseWithParameters
                 double p = selfCost;
                 double step = (double) (0.001*p);
                 double maxPriceVal = selfCost+10*step;
-
+                boolean isFirst = true;
                 while (p<maxPriceVal)
                 {
                     List<InputData> sellersData = new ArrayList<InputData>();
@@ -290,16 +296,36 @@ public class VariationalCaseWithParameters
                         //printArray(sellersVals);
                         //printArray(lastVals);
                     }
-                    while(findMaxDiff(lastVals, sellersVals)>0.01);
+                    while(findMaxDiff(lastVals, sellersVals)>0.007);
                     //System.out.print("Price: "+p+"      ");
                     //printArray(sellersVals);
                     double d=selfCost;
                     Double profit = (p-d)*sellersVals[0]-this.fine*(zVal-sellersVals[0]);
-                    ProfitItemParameter pip = new ProfitItemParameter(profit, p, selfCost, aVal, bVal, sellersVals[0], zVal);
-                    ret.add(pip);
-                    pip.print();
+                    //ProfitItemParameter pip = new ProfitItemParameter(profit, p, selfCost, aVal, bVal, sellersVals[0], zVal);
+                    //ret.add(pip);
+                    //pip.print();
                     p+=step;
+                    if (isFirst)
+                    {
+                        masterProfit = profit;
+                        masterP = p;
+                        masterSelfCost = selfCost;
+                        masterSellerVal = sellersVals[0];
+                        masterZVal = zVal;
+                    }
+                    else
+                        if (profit > masterProfit)
+                        {
+                            masterProfit = profit;
+                            masterP = p;
+                            masterSelfCost = selfCost;
+                            masterSellerVal = sellersVals[0];
+                            masterZVal = zVal;
+                        }
+                    
                 }
+                ProfitItemParameter pip = new ProfitItemParameter(masterProfit, masterP, masterSelfCost, aVal, bVal, masterSellerVal, masterZVal);
+                ret.add(pip);
                 aVal+=aStep;
             }
             bVal+=bStep;

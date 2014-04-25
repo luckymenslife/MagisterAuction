@@ -16,6 +16,11 @@ public class FunctionData
     private Double y;
     private Double z;
 
+    public void print()
+    {
+        System.out.println(x+"  "+y+"      "+z);
+    }
+    
     public FunctionData(Double x, Double y, Double z) {
         this.x = x;
         this.y = y;
