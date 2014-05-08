@@ -124,7 +124,7 @@ public class VariationalCaseWithParameters
    
     private Double priceFunction_new(Double val, Double initVal, int k)
     {
-        Double ret = initVal+k%4;
+        Double ret = initVal+2*(k%4);
         ret+=(val/500);
         return ret;
     } 
@@ -242,7 +242,7 @@ public class VariationalCaseWithParameters
                 Double initValBuyers = 62.0;
                 double p = selfCost;
                 double step = (double) (0.001*p);
-                double maxPriceVal = selfCost+10*step;
+                double maxPriceVal = selfCost+100*step;
                 boolean isFirst = true;
                 while (p<maxPriceVal)
                 {
@@ -312,6 +312,7 @@ public class VariationalCaseWithParameters
                         masterSelfCost = selfCost;
                         masterSellerVal = sellersVals[0];
                         masterZVal = zVal;
+                        isFirst = false;
                     }
                     else
                         if (profit > masterProfit)

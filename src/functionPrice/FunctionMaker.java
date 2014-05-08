@@ -71,11 +71,11 @@ public class FunctionMaker
                 return this.f(x, y);
             else
                 if (Double.compare(x, newX)==0)
-                    return ((newY-y)*this.f(newX, lastY)/(2*(newY-lastY))+
-                            (y-lastY)*this.f(newX, newY)/(2*(newY-lastY)));
+                    return ((newY-y)*this.f(newX, lastY)/((newY-lastY))+
+                            (y-lastY)*this.f(newX, newY)/((newY-lastY)));
                 if (Double.compare(y, newY)==0)
-                    return ((newX-x)*this.f(lastX, newY)/(2*(newX-lastX))+
-                            (x-lastX)*this.f(newX, newY)/(2*(newX-lastX)));
+                    return ((newX-x)*this.f(lastX, newY)/((newX-lastX))+
+                            (x-lastX)*this.f(newX, newY)/((newX-lastX)));
                 else
                 {
                     Double d1, d2, d3, d4, s;
@@ -86,7 +86,7 @@ public class FunctionMaker
                     return ((d2+d3+d4)*this.f(lastX, lastY)+
                             (d1+d3+d4)*this.f(newX, lastY)+
                             (d1+d2+d4)*this.f(lastX, newY)+
-                            (d1+d2+d3)*this.f(newX, newY))/(4*(d1+d2+d3+d4));
+                            (d1+d2+d3)*this.f(newX, newY))/((d1+d2+d3+d4));
                 }
         }
     }

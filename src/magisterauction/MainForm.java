@@ -1030,7 +1030,7 @@ public class MainForm extends javax.swing.JFrame {
             List<FunctionData> fdl = new ArrayList<FunctionData>();
             for(int i = 0; i<piList.size();i++)
             {
-                FunctionData fd = new FunctionData(piList.get(i).getaVal(), piList.get(i).getbVal(), piList.get(i).getProfit());
+                FunctionData fd = new FunctionData(piList.get(i).getaVal(), piList.get(i).getbVal(), piList.get(i).getNum());
                 fdl.add(fd);
             }
             FunctionMaker fm = new FunctionMaker(fdl);
