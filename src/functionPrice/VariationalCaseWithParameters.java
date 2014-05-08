@@ -241,8 +241,9 @@ public class VariationalCaseWithParameters
                 Double initValSellers = 57.0;
                 Double initValBuyers = 62.0;
                 double p = selfCost;
-                double step = (double) (0.001*p);
-                double maxPriceVal = selfCost+100*step;
+                //double step = (double) (0.001*p);
+                double step = (double) (0.01*p);
+                double maxPriceVal = selfCost+50*step;
                 boolean isFirst = true;
                 while (p<maxPriceVal)
                 {
