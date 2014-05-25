@@ -202,10 +202,12 @@ public class VariationalCaseWithParameters
         return (initCost-num/500);
     }
     
-    public List<ProfitItemParameter> auctionModel()
+    public List<ProfitItemParameter> auctionModel(int depType)
     {
         //Взятые с потолка коэффициенты
         Double aCoef = 2000.0;
+        if (depType == 1)
+            aCoef=2.0;
         Double bCoef = 200.0;
         //Double aStep = 0.01*this.maxA;
         Double aStep = 1.0;
@@ -228,10 +230,22 @@ public class VariationalCaseWithParameters
                 Double masterSelfCost = 0.0;
                 Double masterSellerVal = 0.0;
                 Double masterZVal = 0.0;
-                
-                //System.out.println("A:   "+aVal);
-                zVal = aVal*this.minValZ+bVal*aVal;
-                Double selfCost = this.rawCost + (aVal*aCoef+bVal*bCoef)/zVal;
+                Double selfCost;
+                //depType = 0 => z=ax+b;  depType = 1 => z=x*log a
+                if (depType == 0)
+                {
+                    //System.out.println("A:   "+aVal);
+                    zVal = aVal*this.minValZ+bVal*aVal;
+                    selfCost = this.rawCost + (aVal*aCoef+bVal*bCoef)/zVal;
+                }
+                else
+                {
+                    zVal = Math.log(aVal)*this.minValZ;
+                    selfCost = this.rawCost + (aVal*aCoef)/zVal;
+                }
+                    
+                    
+                    
                 Double[] sellersVals = new Double[inputDataSellers.size()+1];
                 Double[] buyersVals = new Double[inputDataBuyers.size()];
                 for(int i = 0; i < sellersVals.length; i++)
@@ -324,7 +338,7 @@ public class VariationalCaseWithParameters
                             masterSellerVal = sellersVals[0];
                             masterZVal = zVal;
                         }
-                    
+
                 }
                 ProfitItemParameter pip = new ProfitItemParameter(masterProfit, masterP, masterSelfCost, aVal, bVal, masterSellerVal, masterZVal);
                 ret.add(pip);
