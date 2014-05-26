@@ -207,11 +207,11 @@ public class VariationalCaseWithParameters
         //Взятые с потолка коэффициенты
         Double aCoef = 2000.0;
         if (depType == 1)
-            aCoef=2.0;
+            aCoef=200.0;
         Double bCoef = 200.0;
         //Double aStep = 0.01*this.maxA;
         Double aStep = 1.0;
-        Double bStep = 0.1*this.maxB;
+        Double bStep = this.maxB==0?1:0.1*this.maxB;
         Double aVal = 1.0;
         Double bVal = 0.0;
         Double zVal = this.minValZ;
@@ -221,8 +221,11 @@ public class VariationalCaseWithParameters
         while (Double.compare(bVal, this.maxB)<1)
         {
             //System.out.println("B:   "+bVal);
+            if (depType == 0)
+                aVal = 1.0;
+            else
+                aVal = 3.0;
             
-            aVal = 1.0;
             while (Double.compare(aVal,this.maxA)<1)
             {
                 Double masterProfit = 0.0;

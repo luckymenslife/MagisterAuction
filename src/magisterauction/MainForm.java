@@ -1107,7 +1107,7 @@ public class MainForm extends javax.swing.JFrame {
                                 val=piList.get(i).getSelfCost();
                             else
                                 val=piList.get(i).getProfit();
-                    ProfitItem pi = new ProfitItem(piList.get(i).getaVal(),val);
+                    ProfitItem pi = new ProfitItem(val, piList.get(i).getaVal());
                     pL.add(pi);
                 }
                 auctionChart = new AuctionChart("Результаты",pL);
