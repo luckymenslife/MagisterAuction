@@ -535,7 +535,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel20.setText("Неустойка за товар");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Объем продаж", "Цена товара", "Себестоимость", "Прибыль" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Объем продаж", "Цена товара", "Себестоимость", "Прибыль", "Объем аукциона" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -649,7 +649,7 @@ public class MainForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+            .addComponent(jTabbedPane3)
         );
 
         jTabbedPane3.getAccessibleContext().setAccessibleName("Фиксированные цены");
@@ -1056,7 +1056,14 @@ public class MainForm extends javax.swing.JFrame {
                 //System.out.println(piList.get(i).getPrice()+"   "+piList.get(i).getProfit());
             }
             int idx = jComboBox1.getSelectedIndex();
-            //0 - Num, 1 - Price, 2 - Self Cost, 3 - Profit
+            //0 - Num, 1 - Price, 2 - Self Cost, 3 - Profit, 4 - Auction volume
+            String chartAxisLabel = "";
+            if (idx==0) chartAxisLabel = "Объем продаж";
+            else if (idx==1) chartAxisLabel = "Цена товара";
+            else if (idx==2) chartAxisLabel = "Себестоимость";
+            else if (idx==3) chartAxisLabel = "Прибыль";
+            else chartAxisLabel = "Объем аукциона";
+            
             if (idx_dep ==0)
             {
                 List<FunctionData> fdl = new ArrayList<FunctionData>();
@@ -1072,7 +1079,10 @@ public class MainForm extends javax.swing.JFrame {
                             if (idx==2)
                                 val=piList.get(i).getSelfCost();
                             else
-                                val=piList.get(i).getProfit();
+                                if (idx==3)
+                                    val=piList.get(i).getProfit();
+                                else
+                                    val=piList.get(i).getAuctionVol();
                     FunctionData fd = new FunctionData(piList.get(i).getaVal(), piList.get(i).getbVal(), val);
                     fdl.add(fd);
                 }
@@ -1106,11 +1116,14 @@ public class MainForm extends javax.swing.JFrame {
                             if (idx==2)
                                 val=piList.get(i).getSelfCost();
                             else
-                                val=piList.get(i).getProfit();
+                                if (idx==3)
+                                    val=piList.get(i).getProfit();
+                                else
+                                    val=piList.get(i).getAuctionVol();
                     ProfitItem pi = new ProfitItem(val, piList.get(i).getaVal());
                     pL.add(pi);
                 }
-                auctionChart = new AuctionChart("Результаты",pL);
+                auctionChart = new AuctionChart("Результаты", "Параметр a", chartAxisLabel,pL);
                 auctionChart.pack();
                 RefineryUtilities.centerFrameOnScreen(auctionChart);
                 auctionChart.setVisible(true);

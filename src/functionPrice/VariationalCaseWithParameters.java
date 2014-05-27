@@ -202,6 +202,22 @@ public class VariationalCaseWithParameters
         return (initCost-num/500);
     }
     
+    private double getAuctionVolume(Double[] inVals)
+    {
+        Double ret = 0.0;
+        for (int i = 0; i<inVals.length; i++)
+            ret+=inVals[i];
+        return ret;
+    }
+    
+    private void printArr(Double[] inVals)
+    {
+        String ret = "";
+        for (int i = 0; i<inVals.length; i++)
+            ret+="   "+inVals[i];
+        System.out.println(ret);
+    }
+    
     public List<ProfitItemParameter> auctionModel(int depType)
     {
         //Взятые с потолка коэффициенты
@@ -233,7 +249,9 @@ public class VariationalCaseWithParameters
                 Double masterSelfCost = 0.0;
                 Double masterSellerVal = 0.0;
                 Double masterZVal = 0.0;
+                Double masterAuctionVol = 0.0;
                 Double selfCost;
+                Double[] masterSellersVals = null;
                 //depType = 0 => z=ax+b;  depType = 1 => z=x*log a
                 if (depType == 0)
                 {
@@ -319,6 +337,7 @@ public class VariationalCaseWithParameters
                     //printArray(sellersVals);
                     double d=selfCost;
                     Double profit = (p-d)*sellersVals[0]-this.fine*(zVal-sellersVals[0]);
+                    Double auctionVol = getAuctionVolume(sellersVals);
                     //ProfitItemParameter pip = new ProfitItemParameter(profit, p, selfCost, aVal, bVal, sellersVals[0], zVal);
                     //ret.add(pip);
                     //pip.print();
@@ -330,6 +349,8 @@ public class VariationalCaseWithParameters
                         masterSelfCost = selfCost;
                         masterSellerVal = sellersVals[0];
                         masterZVal = zVal;
+                        masterAuctionVol = auctionVol;
+                        masterSellersVals = sellersVals.clone();
                         isFirst = false;
                     }
                     else
@@ -340,10 +361,14 @@ public class VariationalCaseWithParameters
                             masterSelfCost = selfCost;
                             masterSellerVal = sellersVals[0];
                             masterZVal = zVal;
+                            masterAuctionVol = auctionVol;
+                            masterSellersVals = sellersVals.clone();
                         }
 
                 }
-                ProfitItemParameter pip = new ProfitItemParameter(masterProfit, masterP, masterSelfCost, aVal, bVal, masterSellerVal, masterZVal);
+                
+                //printArr(masterSellersVals);
+                ProfitItemParameter pip = new ProfitItemParameter(masterProfit, masterP, masterSelfCost, aVal, bVal, masterSellerVal, masterZVal, masterAuctionVol);
                 ret.add(pip);
                 aVal+=aStep;
             }
