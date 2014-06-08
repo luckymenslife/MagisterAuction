@@ -106,7 +106,7 @@
                           <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <EmptySpace pref="72" max="32767" attributes="0"/>
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -247,7 +247,7 @@
                           <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <EmptySpace pref="44" max="32767" attributes="0"/>
                       <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -387,7 +387,7 @@
                       <Component id="jTextField6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                      <EmptySpace pref="43" max="32767" attributes="0"/>
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextField12" min="-2" max="-2" attributes="0"/>
@@ -490,8 +490,8 @@
         <Container class="javax.swing.JPanel" name="jPanel4">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="&#x41e;&#x431;&#x44a;&#x435;&#x43c; &#x43f;&#x440;&#x43e;&#x434;&#x430;&#x436; &#x437;&#x430;&#x432;&#x438;&#x441;&#x438;&#x442; &#x43e;&#x442; &#x43f;&#x430;&#x440;&#x430;&#x43c;&#x435;&#x442;&#x440;&#x43e;&#x432;">
-                <Property name="tabTitle" type="java.lang.String" value="&#x41e;&#x431;&#x44a;&#x435;&#x43c; &#x43f;&#x440;&#x43e;&#x434;&#x430;&#x436; &#x437;&#x430;&#x432;&#x438;&#x441;&#x438;&#x442; &#x43e;&#x442; &#x43f;&#x430;&#x440;&#x430;&#x43c;&#x435;&#x442;&#x440;&#x43e;&#x432;"/>
+              <JTabbedPaneConstraints tabName="&#x41e;&#x431;&#x44a;&#x435;&#x43c; &#x43f;&#x440;&#x43e;&#x438;&#x437;&#x432;&#x43e;&#x434;&#x441;&#x442;&#x432;&#x430; &#x437;&#x430;&#x432;&#x438;&#x441;&#x438;&#x442; &#x43e;&#x442; &#x43f;&#x430;&#x440;&#x430;&#x43c;&#x435;&#x442;&#x440;&#x43e;&#x432;">
+                <Property name="tabTitle" type="java.lang.String" value="&#x41e;&#x431;&#x44a;&#x435;&#x43c; &#x43f;&#x440;&#x43e;&#x438;&#x437;&#x432;&#x43e;&#x434;&#x441;&#x442;&#x432;&#x430; &#x437;&#x430;&#x432;&#x438;&#x441;&#x438;&#x442; &#x43e;&#x442; &#x43f;&#x430;&#x440;&#x430;&#x43c;&#x435;&#x442;&#x440;&#x43e;&#x432;"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -700,7 +700,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x41d;&#x435;&#x443;&#x441;&#x442;&#x43e;&#x439;&#x43a;&#x430; &#x437;&#x430; &#x442;&#x43e;&#x432;&#x430;&#x440;"/>
+                <Property name="text" type="java.lang.String" value="&#x418;&#x437;&#x434;&#x435;&#x440;&#x436;&#x43a;&#x438; &#x43d;&#x430; &#x445;&#x440;&#x430;&#x43d;&#x435;&#x43d;&#x438;&#x435;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBox1">
