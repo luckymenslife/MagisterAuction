@@ -186,6 +186,8 @@ public class FixedPricesForVariational
                                     k--;
                                     lastA = inputDataSellers.get(k).getNumber();
                                 }
+                                else
+                                    this.auctionPrice=lastPrice;
                             }
                 }
                 else

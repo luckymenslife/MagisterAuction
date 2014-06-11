@@ -279,7 +279,7 @@ public class VariationalCaseWithParameters
                 double p = selfCost;
                 //double step = (double) (0.001*p);
                 double step = (double) (0.01*p);
-                double maxPriceVal = selfCost+50*step;
+                double maxPriceVal = selfCost+150*step;
                 boolean isFirst = true;
                 while (p<maxPriceVal)
                 {
