@@ -250,6 +250,7 @@ public class VariationalCaseWithParameters
                 Double masterSellerVal = 0.0;
                 Double masterZVal = 0.0;
                 Double masterAuctionVol = 0.0;
+                Double masterPrice = 0.0;
                 Double selfCost;
                 Double[] masterSellersVals = null;
                 //depType = 0 => z=ax+b;  depType = 1 => z=x*log a
@@ -282,6 +283,7 @@ public class VariationalCaseWithParameters
                 boolean isFirst = true;
                 while (p<maxPriceVal)
                 {
+                    Double curPrice=0.0;
                     List<InputData> sellersData = new ArrayList<InputData>();
                     List<InputData> buyersData = new ArrayList<InputData>();
                     for (int i = 0; i<inputDataSellers.size();i++)
@@ -313,7 +315,7 @@ public class VariationalCaseWithParameters
                             buyersVals[i]=(1-alpha)*buyersVals[i]+alpha*fpv.getOutputBuyers()[i];
                         }
 
-
+                        curPrice=fpv.getAuctionPrice();
                         sellersData = new ArrayList<InputData>();
                         buyersData = new ArrayList<InputData>();
                         for (int i = 0; i<inputDataSellers.size();i++)
@@ -351,6 +353,7 @@ public class VariationalCaseWithParameters
                         masterZVal = zVal;
                         masterAuctionVol = auctionVol;
                         masterSellersVals = sellersVals.clone();
+                        masterPrice=curPrice;
                         isFirst = false;
                     }
                     else
@@ -362,13 +365,14 @@ public class VariationalCaseWithParameters
                             masterSellerVal = sellersVals[0];
                             masterZVal = zVal;
                             masterAuctionVol = auctionVol;
+                            masterPrice=curPrice;
                             masterSellersVals = sellersVals.clone();
                         }
 
                 }
                 
                 //printArr(masterSellersVals);
-                ProfitItemParameter pip = new ProfitItemParameter(masterProfit, masterP, masterSelfCost, aVal, bVal, masterSellerVal, masterZVal, masterAuctionVol);
+                ProfitItemParameter pip = new ProfitItemParameter(masterProfit, masterP, masterSelfCost, aVal, bVal, masterSellerVal, masterZVal, masterAuctionVol, masterPrice);
                 ret.add(pip);
                 aVal+=aStep;
             }

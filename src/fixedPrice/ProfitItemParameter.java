@@ -17,7 +17,12 @@ public class ProfitItemParameter implements Comparable<ProfitItemParameter>
     private double bVal;
     private double num;
     private double zVal;
+    private double auctionPrice;
     private double auctionVol;
+
+    public double getAuctionPrice() {
+        return auctionPrice;
+    }
 
     public void setSelfCost(double selfCost) {
         this.selfCost = selfCost;
@@ -67,7 +72,7 @@ public class ProfitItemParameter implements Comparable<ProfitItemParameter>
         return bVal;
     }
 
-    public ProfitItemParameter(double profit, double price, double selfCost, double aVal, double bVal, double num, double zVal, double auctionVol) {
+    public ProfitItemParameter(double profit, double price, double selfCost, double aVal, double bVal, double num, double zVal, double auctionVol, double auctionPrice) {
         this.profit = profit;
         this.price = price;
         this.selfCost = selfCost;
@@ -76,7 +81,7 @@ public class ProfitItemParameter implements Comparable<ProfitItemParameter>
         this.num = num;
         this.zVal = zVal;
         this.auctionVol = auctionVol;
-        
+        this.auctionPrice = auctionPrice;
     }
 
     public double getPrice() {

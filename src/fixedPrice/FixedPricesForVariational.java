@@ -20,6 +20,11 @@ public class FixedPricesForVariational
     private Double[] outputBuyers;// --//-- покупателей
     private double costs;
     private double maxNum;
+    private double auctionPrice;
+
+    public double getAuctionPrice() {
+        return auctionPrice;
+    }
 
     public FixedPricesForVariational(List<InputData> inputDataSellers, List<InputData> inputDataBuyers) {
         this.inputDataSellers = new ArrayList<InputData>();
@@ -160,6 +165,7 @@ public class FixedPricesForVariational
                         isHalt = true;
                         lastA = inputDataSellers.get(k).getNumber() - (curSum - bpi.getMinPriceSum());
                         lastB = bpi.getMaxPriceNum();
+                        this.auctionPrice=curPrice;
                         kB = bpi.getId();
                     }
                     else
@@ -168,6 +174,7 @@ public class FixedPricesForVariational
                             isAlmostHalt = true;
                             lastA = inputDataSellers.get(k).getNumber();
                             lastB = bpi.getMaxPriceNum() - (bpi.getMinPriceSum() - curSum);
+                            this.auctionPrice=bpi.getMaxPrice();
                             kB = bpi.getId();
                         }
                         else
@@ -196,6 +203,7 @@ public class FixedPricesForVariational
                             lastA = inputDataSellers.get(k).getNumber() - (curSum - bpi.getMinPriceSum());
                             lastB = bpi.getMaxPriceNum();
                             kB = bpi.getId();
+                            this.auctionPrice=curPrice;
                         }
                     }
                     else
@@ -205,6 +213,7 @@ public class FixedPricesForVariational
                             lastA = inputDataSellers.get(k).getNumber();
                             lastB = bpi.getMaxPriceNum() - (bpi.getMinPriceSum() - curSum);
                             kB = bpi.getId();
+                            this.auctionPrice=bpi.getMaxPrice();
                         }
                 }
                 k++;

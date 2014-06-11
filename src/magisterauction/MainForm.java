@@ -535,7 +535,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel20.setText("Издержки на хранение");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Объем продаж", "Цена товара", "Себестоимость", "Прибыль", "Объем аукциона" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Объем продаж", "Цена товара", "Себестоимость", "Прибыль", "Объем аукциона", "Цена аукциона" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -1062,7 +1062,8 @@ public class MainForm extends javax.swing.JFrame {
             else if (idx==1) chartAxisLabel = "Цена товара";
             else if (idx==2) chartAxisLabel = "Себестоимость";
             else if (idx==3) chartAxisLabel = "Прибыль";
-            else chartAxisLabel = "Объем аукциона";
+            else if (idx==4) chartAxisLabel = "Объем аукциона";
+            else chartAxisLabel = "Цена аукциона";
             
             if (idx_dep ==0)
             {
@@ -1082,7 +1083,10 @@ public class MainForm extends javax.swing.JFrame {
                                 if (idx==3)
                                     val=piList.get(i).getProfit();
                                 else
-                                    val=piList.get(i).getAuctionVol();
+                                     if (idx==4)
+                                        val=piList.get(i).getAuctionVol();
+                                    else
+                                        val=piList.get(i).getAuctionPrice();
                     FunctionData fd = new FunctionData(piList.get(i).getaVal(), piList.get(i).getbVal(), val);
                     fdl.add(fd);
                 }
@@ -1119,7 +1123,10 @@ public class MainForm extends javax.swing.JFrame {
                                 if (idx==3)
                                     val=piList.get(i).getProfit();
                                 else
-                                    val=piList.get(i).getAuctionVol();
+                                    if (idx==4)
+                                        val=piList.get(i).getAuctionVol();
+                                    else
+                                        val=piList.get(i).getAuctionPrice();
                     ProfitItem pi = new ProfitItem(val, piList.get(i).getaVal());
                     pL.add(pi);
                 }
